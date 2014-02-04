@@ -10,4 +10,6 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)returnedFromSegue:(UIStoryboardSegue *)segue;
+
 @end
