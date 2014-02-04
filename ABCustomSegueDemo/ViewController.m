@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ABCustomUnwindSegue.h"
 
 @interface ViewController ()
 
@@ -28,6 +29,12 @@
 
 - (IBAction)returnedFromSegue:(UIStoryboardSegue *)segue {
     NSLog(@"Returned from second view");
+}
+
+- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
+    
+    ABCustomUnwindSegue *segue = [[ABCustomUnwindSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+    return segue;
 }
 
 @end
