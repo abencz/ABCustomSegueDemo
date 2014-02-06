@@ -33,8 +33,12 @@
 
 - (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
     
-    ABCustomUnwindSegue *segue = [[ABCustomUnwindSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
-    return segue;
+    if ([identifier isEqualToString:@"UnwindFromSecondView"]) {
+        ABCustomUnwindSegue *segue = [[ABCustomUnwindSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+        return segue;
+    }
+
+    return [super segueForUnwindingToViewController:toViewController fromViewController:fromViewController identifier:identifier];
 }
 
 @end
